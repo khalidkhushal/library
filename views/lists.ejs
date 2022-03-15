@@ -1,0 +1,84 @@
+<%-include ('header')-%>
+    <h2>Students</h2>
+
+
+    <div id="student-table">
+
+        <div id="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID </th>
+                        <th scope="col">First Name </th>
+                        <th scope="col">Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for( let i = 0; i < student.length; i++ ) { %>
+                        <tr>
+                            <th scope="row">
+                                <%= student[i].id %>
+                            </th>
+                            <td>
+                                <%= student[i].First_name %>
+                            </td>
+                            <td>
+                                <%= student[i].Last_name %>
+                            </td>
+                        </tr>
+                        <% } %>
+
+                </tbody>
+            </table>
+        </div>
+        <a href="/students" type="button" class='btn btn-success border-shadow'>Students Page</a>
+    </div>
+    <h2>Books</h2>
+    <div id="books-table">
+
+        <div id="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Book-name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Borrowed By</th>
+                        <th scope="col">Date Of Borrow</th>
+                        <th scope="col">Date Of Return</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for( let i = 0; i < book.length; i++ ) { %>
+                        <tr>
+                            <th scope="row">
+                                <%= book[i].id %>
+                            </th>
+                            <td>
+                                <%= book[i].book_name %>
+                            </td>
+                            <td>
+                                <%= book[i].author_name %>
+                            </td>
+                            <td>
+                                <%= book[i].borrowed_by %>
+                            </td>
+                            <td>
+                                <%= book[i].date_of_borrow %>
+                            </td>
+                            <td>
+                                <%= book[i].date_of_return %>
+                            </td>
+                        </tr>
+                        <% } %>
+
+                </tbody>
+            </table>
+        </div>
+        <a href="/books" class='btn btn-success border-shadow'>Books Page</a>
+    </div>
+
+
+    <%-include ('footer')-%>

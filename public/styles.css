@@ -1,0 +1,21 @@
+#student-table {
+    width: 60%;
+    border: black;
+    border-radius: 2px;
+    display: inline-table;
+    margin-left: 20%;
+}
+
+#books-table {
+    width: 80%;
+    border: black;
+    border-radius: 2px;
+    display: inline-table;
+    margin-left: 10%;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

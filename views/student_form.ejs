@@ -1,0 +1,48 @@
+<%-include ('header')-%>
+
+    <div class="container wd-25  pt-5 ">
+        <a href="/students" class='btn btn-success mb-2'><i class="fas fa-angle-double-left"></i>All Students</a>
+        <div class="text-center" style="padding: 5px 10px;">
+            <h1 style="color: cornflowerblue;font-weight: bold;">Update Student Data</h1>
+            <span style="color: black; margin-bottom: 10px;">Enter updated Student data</span>
+        </div>
+        <form class='form-control pl-5 mb-5' id='update_student' style="border: none;">
+            <div class="new_user">
+                <div class="form-group">
+                    <input type="hidden" name='id' value='<%=student.id %> '>
+                    <label for="First_name" class="form-label" style="font-weight: bold;">First Name</label>
+                    <input type='text' name='First_name' class="form-control" value="<%= student.First_name %>" id="First_name" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="Last_name" class="form-label" style="font-weight: bold;">Last Name</label>
+                    <input type='text' name="Last_name" class="form-control" value="<%= student.Last_name %>" id="formGroup" placeholder="Last Name">
+                </div>
+
+            </div>
+
+            <button type='submit' class='btn btn-success border update'>Done</button>
+
+    </div>
+    </form>
+    </div>
+    <script>
+        $('#update_student').submit(function(event) {
+            event.preventDefault();
+            var unindexed_array = $(this).serializeArray();
+            var data = {}
+            $.map(unindexed_array, function(n, i) {
+                data[n['name']] = n['value']
+            })
+            console.log(data)
+            var request = {
+                "url": "http://localhost:8899/update_student/" + data.id,
+                "method": "PUT",
+                "data": data
+            }
+            $.ajax(request).done(response => {
+                alert('data updated successfully!');
+            })
+        });
+    </script>
+
+    <%-include ('footer')-%>
